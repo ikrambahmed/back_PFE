@@ -30,24 +30,21 @@ import application.repository.RoleRepository;
 import application.repository.UserRepository;
 import application.service.UserService;
 import application.util.RoleEnum;
-/*import net.sf.jasperreports.engine.JRDataSource;
+
+
+
+import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-*/
 
 
 
-import net.sf.jasperreports.engine.JREmptyDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+
+
 
 
 
@@ -111,45 +108,25 @@ public class MissCniApplication {
 		
 		
 		
-		
-	/*   try {
-            /* User home directory location */
-        //    String userHomeDirectory = System.getProperty("user.home");
-            /* Output file location */
-        //    String outputFile = userHomeDirectory + File.separatorChar + "rapportMiss.pdf";
-
-        //    List<Missionnaire> listItems = new ArrayList<Missionnaire>();
-
-            /* Create Items */
-         //   Missionnaire iPhone = new Missionnaire();
-        //    iPhone.setNom("iPhone 6S");
-           
-            /* Add Items to List */
-        //    listItems.add(iPhone);
-    
-
-            /* Convert List to JRBeanCollectionDataSource */
-        //    JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(listItems);
-
-            /* Map to hold Jasper report Parameters */
-       //     Map<String, Object> parameters = new HashMap<String, Object>();
-        //    parameters.put("ItemDataSource", itemsJRBean);
-
-            /* Using compiled version(.jasper) of Jasper report to generate PDF */
-       //     JasperPrint jasperPrint = JasperFillManager.fillReport("C:\\Users\\ikram ben ahmed\\Desktop\\back-master\\src\\main\\resources\\rapportMiss.jasper", parameters, new JREmptyDataSource());
-
-            /* outputStream to create PDF */
-         //   FileOutputStream outputStream = new FileOutputStream(new File(outputFile));
-            /* Write content to PDF file */
-      /*     JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
-
-            System.out.println("File Generated");
-        } catch (JRException ex) {
-            ex.printStackTrace();
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
-*/
+try {
+			
+			JasperReport jasper = JasperCompileManager.compileReport("C:\\Users\\ikram ben ahmed\\Desktop\\back-master\\src\\main\\resources\\report.jrxml");
+			JRDataSource datasource = new JREmptyDataSource();
+			
+			Map<String, Object> parameters = new HashMap<String, Object>();
+			parameters.put("nom", "dorra");
+			parameters.put("prenom", "kerro");
+			parameters.put("matricule", "1");
+			parameters.put("CIN", "14300668");
+			
+			JasperPrint jasperPrint = JasperFillManager.fillReport(jasper, parameters,datasource );
+			JasperExportManager.exportReportToPdfFile(jasperPrint,"C:\\Users\\ikram ben ahmed\\Desktop\\back-master\\src\\main\\resources\\report_pdf.pdf");
+			
+			
+			
+			
+			
+		}catch(Exception e) {e.printStackTrace();}
 		
 		
 		

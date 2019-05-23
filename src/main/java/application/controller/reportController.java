@@ -35,12 +35,12 @@ public class reportController {
   return model;
  }
 
- @RequestMapping(value = "/export", method = RequestMethod.GET)
+ @RequestMapping(value = "/export", method = RequestMethod.POST)
  public void export(ModelAndView model, HttpServletResponse response) throws IOException, JRException, SQLException {
   JasperPrint jasperPrint = null;
 
   response.setContentType("application/x-download");
-  response.setHeader("Content-Disposition", String.format("attachment; filename=\"users.pdf\""));
+  response.setHeader("Content-Disposition", String.format("attachment; filename=\"report.pdf\""));
 
   OutputStream out = response.getOutputStream();
   jasperPrint = userService.exportPdfFile();
