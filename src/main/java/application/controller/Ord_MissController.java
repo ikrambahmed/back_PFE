@@ -113,5 +113,13 @@ public class Ord_MissController  {
 	 
 
 	 
+	 
+	 @RequestMapping(value="/getOne",method=RequestMethod.POST)
+	 public OrdMis getOne(@RequestBody Missionnaire o )
+	 {
+		 return ordMissDao.getOne(o.getCin(),o.getCode().getCode()); 
+	 }
+	 
+	 
 }
 	

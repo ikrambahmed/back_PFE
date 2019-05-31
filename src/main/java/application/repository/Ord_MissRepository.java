@@ -41,8 +41,8 @@ public interface Ord_MissRepository extends JpaRepository<OrdMis, Class<OrdMisPK
     @Modifying
     @Query("delete from OrdMis o where o.numord=:numord and o.numMission=:numMission and o.code=:code")
 	int deleteord(@Param("numord")short numord, @Param("numMission")String numMission,@Param("code") String code);
-    
-    
-    
+    //and o.numMission=(select MAX(o.numMission) where o.cin=:cin and o.code=:o.code )
+    @Query("select o from OrdMis o where o.cin=:cin and  o.code=:code and o.numord=(select MAX(o.numord) from OrdMis o where o.cin=:cin and  o.code=:code ) ")
+    OrdMis getOneOrdre(@Param("cin")String cin , @Param("code")String code) ; 
     
 }

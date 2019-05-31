@@ -55,7 +55,7 @@ public class AvoirFrais implements Serializable {
 	    @Column(name = "CIN")
 	    private String cin;
 	   
-
+private String duree ; 
 
 
     @Column(name = "VALEUR_P")
@@ -111,6 +111,14 @@ public class AvoirFrais implements Serializable {
 
     
     
+	public String getDuree() {
+		return duree;
+	}
+
+	public void setDuree(String duree) {
+		this.duree = duree;
+	}
+
 	public String getCode() {
 		return code;
 	}

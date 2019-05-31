@@ -7,7 +7,17 @@
 	<parameter name="prenom" class="java.lang.String"/>
 	<parameter name="matricule" class="java.lang.String"/>
 	<parameter name="CIN" class="java.lang.String"/>
-	<parameter name="Parameter1" class="java.lang.String"/>
+	<parameter name="Pays" class="java.lang.String"/>
+	<parameter name="duree" class="java.lang.String"/>
+	<parameter name="date_debut" class="java.lang.String"/>
+	<parameter name="date_retour" class="java.lang.String"/>
+	<parameter name="objetA" class="java.lang.String"/>
+	<parameter name="Typetrans" class="java.lang.String"/>
+	<parameter name="Frais_trans" class="java.lang.String"/>
+	<parameter name="numord" class="java.lang.String"/>
+	<parameter name="nummission" class="java.lang.String"/>
+	<parameter name="code" class="java.lang.String"/>
+	<parameter name="codedept" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
 	</queryString>
@@ -15,45 +25,106 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="20" width="350" height="30" uuid="07e85e26-f2b2-4d60-baf8-7ea2af044cdc"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fiche de blocage]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="162" height="30" uuid="719eb2ba-df9b-4eb9-a8cc-c4ed9ad57779"/>
+				<textElement>
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[odre de mission numero:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="60" width="100" height="30" uuid="1846e7d0-2665-4370-bb01-f2119108d68f"/>
+				<textFieldExpression><![CDATA[$P{numord}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="60" width="100" height="30" uuid="46eaba4c-e612-4660-8e4d-592d6bb6da46"/>
+				<textFieldExpression><![CDATA[$P{nummission}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="30" uuid="6c0b18c8-f512-488d-8412-01d8cc5e28ec"/>
+				<textFieldExpression><![CDATA[$P{codedept}]]></textFieldExpression>
+			</textField>
+		</band>
 	</title>
 	<detail>
-		<band height="125" splitType="Stretch">
-			<textField>
-				<reportElement x="150" y="10" width="100" height="30" uuid="24af7c3f-c7c7-49f4-a4fd-1a735c92083c"/>
-				<textFieldExpression><![CDATA[$P{nom}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="420" y="10" width="100" height="30" uuid="ba295c6c-f405-4e8d-97fa-412ad9556290"/>
-				<textFieldExpression><![CDATA[$P{prenom}]]></textFieldExpression>
-			</textField>
+		<band height="260" splitType="Stretch">
 			<textField>
 				<reportElement x="420" y="60" width="100" height="30" uuid="3a9b7463-116b-4ca6-bd04-63760fb48843"/>
 				<textFieldExpression><![CDATA[$P{matricule}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="150" y="60" width="100" height="30" uuid="30f8e331-d22b-4f41-801f-9feaf86f0c35"/>
+				<reportElement x="130" y="60" width="100" height="30" uuid="30f8e331-d22b-4f41-801f-9feaf86f0c35"/>
 				<textFieldExpression><![CDATA[$P{CIN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="10" y="10" width="100" height="30" uuid="5c3ba863-14d0-49c7-ae5a-62400ae33fc5"/>
-				<text><![CDATA[NOM:]]></text>
+				<reportElement x="270" y="10" width="100" height="30" uuid="92d99d72-0443-46fc-a8b9-b45e71b929cf"/>
+				<textElement>
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prenom:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="300" y="10" width="100" height="30" uuid="92d99d72-0443-46fc-a8b9-b45e71b929cf"/>
-				<text><![CDATA[PRENOM:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="10" y="60" width="100" height="30" uuid="47c1048e-d5cc-4c86-a4c8-d6d184b5e964"/>
+				<reportElement x="0" y="60" width="100" height="30" uuid="47c1048e-d5cc-4c86-a4c8-d6d184b5e964"/>
+				<textElement>
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
 				<text><![CDATA[CIN:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="300" y="60" width="100" height="30" uuid="be065d25-02ca-411b-bb07-0fe7c343b468"/>
-				<text><![CDATA[MATRICULE:]]></text>
+				<reportElement x="270" y="60" width="115" height="30" uuid="be065d25-02ca-411b-bb07-0fe7c343b468"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MATRICULE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="390" y="10" width="100" height="30" uuid="ba295c6c-f405-4e8d-97fa-412ad9556290"/>
+				<textFieldExpression><![CDATA[$P{prenom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="115" width="100" height="30" uuid="e9f288a9-672b-43b2-97b8-061cd483cdce"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Duree:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="115" width="90" height="30" uuid="155545a8-b432-4e9c-b611-59d01b08dbe6"/>
+				<textFieldExpression><![CDATA[$P{duree}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="160" width="374" height="30" uuid="43df2107-18b0-4ade-ab02-abaf300c39e6"/>
+				<textFieldExpression><![CDATA[$P{objetA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="100" height="30" uuid="5c3ba863-14d0-49c7-ae5a-62400ae33fc5"/>
+				<textElement>
+					<font fontName="SansSerif" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="10" width="100" height="30" uuid="24af7c3f-c7c7-49f4-a4fd-1a735c92083c"/>
+				<textFieldExpression><![CDATA[$P{nom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="160" width="152" height="30" uuid="dfae51db-6d9e-40dc-877b-179cdc1be41e"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Objet de la mission]]></text>
 			</staticText>
 		</band>
 	</detail>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="109" splitType="Stretch"/>
 	</summary>
 </jasperReport>

@@ -48,6 +48,7 @@ public class Mission implements Serializable{
 
 	   private String annee ; 
 	   
+	    private String duree ; 
 	    
 
 	    @JoinColumn(name = "CODE", insertable=false , updatable=false )
@@ -64,6 +65,14 @@ public class Mission implements Serializable{
 	    private Collection<OrdMis> ordMisCollection;
 	   
 	    
+		public String getDuree() {
+			return duree;
+		}
+
+		public void setDuree(String duree) {
+			this.duree = duree;
+		}
+
 		public Mission(String numMission, String code, String objeta, String objetl, Date datdepP, Date datarrP,
 				DeptGen deptGen, application.model.Motcle motcle, Collection<OrdMis> ordMisCollection) {
 			super();

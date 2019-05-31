@@ -98,9 +98,18 @@ public class OrdMis implements Serializable{
     private String typAv;  
     @Column(name = "RESUME")
     private String resume;
+    private String duree ; 
     
 
-    @JoinColumns({
+    public String getDuree() {
+		return duree;
+	}
+
+	public void setDuree(String duree) {
+		this.duree = duree;
+	}
+
+	@JoinColumns({
         @JoinColumn(name = "NUM_MISSION", referencedColumnName = "NUM_MISSION", insertable = false, updatable = false)
         , @JoinColumn(name = "CODE", referencedColumnName = "CODE", insertable = false, updatable = false)})
     @ManyToOne(optional = false, fetch = FetchType.EAGER)

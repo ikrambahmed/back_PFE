@@ -58,4 +58,8 @@ import application.repository.Ord_MissRepository;
 			return ordmissRepository.getAllOrdre(numMission , code) ; 
 		}
 
+		public OrdMis getOne(String cin , String code) {
+			return ordmissRepository.getOneOrdre(cin, code) ; 
+		}
+		
 }

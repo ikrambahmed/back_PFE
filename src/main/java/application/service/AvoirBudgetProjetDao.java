@@ -10,7 +10,7 @@ import application.model.AvoirBudget;
 import application.model.AvoirBudgetProjet;
 import application.repository.AvoirBudgetProjetRepository;
 @Service
-@Primary
+@Primary  
 public class AvoirBudgetProjetDao implements IAvoirBudgetProjet{
 @Autowired
 AvoirBudgetProjetRepository avoirBudgetRep ; 
